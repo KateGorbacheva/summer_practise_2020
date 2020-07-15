@@ -1,14 +1,14 @@
 function Lotka_Voltera(x1,x2,X_2,B,alpha1,alpha2,beta1,beta2,w1)
 %{
-x1  - начальное значение жертв
-x2  - начальное значение хищников
-X_2 - цель хищников
-B   - ограничение жертв
-alpha1,alpha2,beta1,beta2,w1 - коэффициенты
+x1  - initial values of prey
+x2  - initial values of predator
+X_2 - predator target
+B   - prey restriction
+alpha1,alpha2,beta1,beta2,w1 - coefficient
 %}
-n0 = 1;%левая граница
-nn = 50;%правая граница
-h = 0.01;%шаг
+n0 = 1;%left border
+nn = 50;%right border
+h = 0.01;%step
 interval = n0:h:nn;
 
 N = length(interval);
