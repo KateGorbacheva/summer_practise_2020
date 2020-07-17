@@ -6,10 +6,10 @@ X_2 - predator target
 B   - prey restriction
 alpha1,alpha2,beta1,beta2,w1 - coefficient
 %}
-x1 = 6; % начальное значение жертв
-x2 = 3; % начальное значение хищников
-X_2 = 7;% цель хищников
-B=9;    %ограничение жертв
+x1 = 6; 
+x2 = 3; 
+X_2 = 7;
+B=9;    
 
 f = fopen('values.txt','wt');
 n0 = 1;
@@ -43,13 +43,12 @@ for alpha1 = 0.1:0.1:1.5
                     X2(n)=X2(n-1) + h*(-alpha2*X2(n-1)+beta2*X1(n-1)*X2(n-1));
                     psi_t=X2(n-1)-X_2;
                     
-                    proc = N-N/100;%99 percent of the total,number / 99 процентов от всего,число
+                    proc = N-N/100;%99 percent of the total,number
                     
                     
                     
-                    if(n > proc && (abs(psi_t)/X_2)* 100 > 10)%checking deviation at the boundary values / проверка отклонения у граничных значений
-                        break
-                    elseif(n==N)% until the counter reaches the end of the interval / пока счетчик не достигнет конца интервала
+                    if(n > proc && (abs(psi_t)/X_2)* 100 > 10)%checking deviation at the boundary values 
+                    elseif(n==N)% until the counter reaches the end of the interval 
                     fprintf(f, '%4d,%0d,%0d,%0d,%0.2f,%0.2f,%0.2f,%0.2f,%0.2f\n',x1,x2,X_2,B,alpha1,alpha2,beta1,beta2,w1);
 
                     end
